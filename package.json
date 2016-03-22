@@ -1,17 +1,18 @@
 {
-  "name": "trivia-central-api",
+  "name": "trivia-central-server",
   "version": "1.0.0",
   "description": "Web API of Trivia Central",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
-    "check-config": "node ./config",
+    "start": "node ./build/api",
+    "check-config": "node ./config/check",
     "seed": "npm run check-config && npm run start-seed",
       "start-seed": "babel-node ./seed",
     "dev": "npm run check-config && npm run start-dev",
       "start-dev": "babel-node ./src",
-    "build": "npm run check-config && npm run start-build",
-      "build": "babel src -d build",
+    "build": "npm run check-config && npm run clean-build && npm run start-build",
+      "clean-build": "rm -r ./build/ && mkdir build",
+      "start-build": "babel src -d build/api && mkdir build/config && babel config/custom.js -o build/config/custom.js && mkdir build/trivia-central-lib && babel trivia-central-lib/validations.js -o build/trivia-central-lib/validations.js",
     "test": "echo todo"
   },
   "author": "Nathaniel Wood",
@@ -41,6 +42,7 @@
     "passport": "^0.3.2",
     "passport-facebook-token": "^3.2.0",
     "passport-google-id-token": "^0.4.0",
-    "passport-jwt": "^2.0.0"
+    "passport-jwt": "^2.0.0",
+    "validator": "^5.1.0"
   }
 }
