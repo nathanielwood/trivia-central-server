@@ -5,7 +5,7 @@ import { urlencoded, json } from 'body-parser';
 import mongoose from 'mongoose';
 import passport from 'passport';
 import router from './router';
-import config from '../config';
+import config from '../config/custom';
 import strategies from './strategies';
 
 const API_PORT = config.api.port;

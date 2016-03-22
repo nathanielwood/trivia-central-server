@@ -4,9 +4,10 @@
 import mongoose from 'mongoose';
 import fetch from 'isomorphic-fetch';
 import { XmlEntities } from 'html-entities';
-import Question from '../api/models/Question';
-import User from '../api/models/User';
-import Game from '../api/models/Game';
+import config from './config/custom';
+import Question from './src/models/Question';
+import User from './src/models/User';
+import Game from './src/models/Game';
 
 const NUM_QUESTIONS = 10000;
 
@@ -15,7 +16,7 @@ const NUM_QUESTIONS = 10000;
 const entities = new XmlEntities();
 const decode = entities.decode;
 
-mongoose.connect('mongodb://localhost/trivia');
+mongoose.connect(config.database.url);
 
 let admin;
 

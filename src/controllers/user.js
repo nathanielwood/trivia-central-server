@@ -3,7 +3,7 @@
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
 import User from '../models/User';
-import config from '../../config';
+import config from '../../config/custom';
 import {
   validateRegisterForm,
   validateSigninForm,

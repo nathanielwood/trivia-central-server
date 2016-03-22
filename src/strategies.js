@@ -4,7 +4,7 @@ import { Strategy, ExtractJwt } from 'passport-jwt';
 import FacebookTokenStrategy from 'passport-facebook-token';
 import GoogleTokenStrategy from 'passport-google-id-token';
 import User from './models/User';
-import config from '../config';
+import config from '../config/custom';
 
 export default (passport) => {
   // JWT AUTHORIZATION

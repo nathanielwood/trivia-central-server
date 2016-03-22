@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import util from 'util';
-import config from '../../config';
+import config from '../../config/custom';
 import ejs from 'ejs';
 import fs from 'fs';
 
