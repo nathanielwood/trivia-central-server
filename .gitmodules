@@ -1,0 +1,3 @@
+[submodule "trivia-central-lib"]
+	path = trivia-central-lib
+	url = https://github.com/nathanielwood/trivia-central-lib
