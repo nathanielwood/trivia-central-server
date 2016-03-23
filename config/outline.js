@@ -6,6 +6,7 @@
 export default {
   api: {
     port: 8080, // port to listen to
+    address: '127.0.0.1', // IP address
   },
   database: {
     url: 'mongodb://localhost/mydatabase', // mongo db url

@@ -9,6 +9,8 @@ import config from '../config/custom';
 import strategies from './strategies';
 
 const API_PORT = config.api.port;
+const API_ADDRESS = config.api.address;
+
 mongoose.connect(process.env.MONGO_URI || config.database.url);
 strategies(passport);
 
@@ -32,6 +34,6 @@ api.use('/api', router);
 
 
 // Start API server
-api.listen(API_PORT, () => {
+api.listen(API_PORT, API_ADDRESS, () => {
   console.log(`API Server is now listening on port ${API_PORT}`); // eslint-disable-line
 });
