@@ -8,6 +8,9 @@ export default {
     port: 8080, // port to listen to
     address: '127.0.0.1', // IP address
   },
+  client: {
+    domain: 'http://localhost:3000', // required for mail
+  },
   database: {
     url: 'mongodb://localhost/mydatabase', // mongo db url
   },
