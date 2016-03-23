@@ -30,7 +30,7 @@ api.use((req, res, next) => {
 });
 
 // Register the Routes
-api.use('/api', router);
+api.use('/', router);
 
 
 // Start API server
