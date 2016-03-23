@@ -46,7 +46,7 @@ const sendMail = (info) => {
 };
 
 export const registerMail = (user) => {
-  const template = fs.readFileSync(`${__dirname}/../mail/register.ejs`, 'utf8');
+  const template = fs.readFileSync(`${__dirname}/../../mail/register.ejs`, 'utf8');
   const html = ejs.render(template, { name: user.name });
   sendMail({
     email: user.email,
@@ -57,7 +57,7 @@ export const registerMail = (user) => {
 };
 
 export const forgotPasswordMail = (info) => {
-  const template = fs.readFileSync(`${__dirname}/../mail/forgotPassword.ejs`, 'utf8');
+  const template = fs.readFileSync(`${__dirname}/../../mail/forgotPassword.ejs`, 'utf8');
   const html = ejs.render(template, { name: info.name, link: info.link });
   sendMail({
     email: info.email,
