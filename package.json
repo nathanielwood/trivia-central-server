@@ -4,7 +4,7 @@
   "description": "Web API of Trivia Central",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/api",
+    "start": "NODE_ENV=production node ./build/api",
     "check-config": "node ./config/check",
     "seed": "npm run check-config && npm run start-seed",
     "start-seed": "babel-node ./seed",
