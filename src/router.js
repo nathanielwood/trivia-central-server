@@ -29,6 +29,7 @@ import {
   resetPassword,
   registerUsername,
   requireUsername,
+  contactForm,
 } from './controllers/user';
 // import Question from '../data/models/Question';
 
@@ -103,6 +104,9 @@ router.route('/games/:game_id/next')
 router.route('/games/:game_id/:question_id')
 .get(getGameQuestionById)
 .post(answerGameQuestion);
+
+router.route('/contact')
+.post(contactForm);
 
 // test route to make sure everything is working
 router.get('/', (req, res) => {

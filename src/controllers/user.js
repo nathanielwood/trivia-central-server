@@ -11,7 +11,7 @@ import {
   validateForgotPasswordForm,
   validateChangePasswordForm,
 } from '../../trivia-central-lib/validations';
-import { registerMail, forgotPasswordMail } from './mail';
+import { registerMail, forgotPasswordMail, contactMail } from './mail';
 
 const returnUser = (user) => {
   const compileUser = {
@@ -264,5 +264,16 @@ export const resetPassword = (req, res) => {
       success: true,
       message: 'Password reset. You may now log in with the new password',
     });
+  });
+};
+
+export const contactForm = (req, res) => {
+  contactMail({
+    name: req.body.name,
+    email: req.body.email,
+    content: req.body.content,
+  });
+  return res.json({
+    success: true,
   });
 };

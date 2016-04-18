@@ -66,3 +66,14 @@ export const forgotPasswordMail = (info) => {
     html,
   });
 };
+
+export const contactMail = (info) => {
+  const template = fs.readFileSync(`${__dirname}/../../mail/contact.ejs`, 'utf8');
+  const html = ejs.render(template, { name: info.name, email: info.email, content: info.content });
+  sendMail({
+    email: config.contact.email,
+    name: config.contact.name,
+    subject: 'Contact Form',
+    html,
+  });
+};
