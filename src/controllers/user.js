@@ -275,9 +275,17 @@ export const contactForm = (req, res) => {
       message: 'No recaptcha',
     });
   }
-  const options = {
+  const values = {
     secret: config.recaptcha.secret,
     response: req.body.recaptcha,
+  };
+  const options = {
+    method: 'post',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(values),
   };
   return fetch(config.recaptcha.url, options)
   .then(response => response.json())
@@ -296,6 +304,6 @@ export const contactForm = (req, res) => {
     //   success: false,
     // });
     console.log(json);
-    return json;
+    return res.json(json);
   });
 };
