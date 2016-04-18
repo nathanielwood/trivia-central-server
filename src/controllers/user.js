@@ -269,11 +269,17 @@ export const resetPassword = (req, res) => {
 };
 
 export const contactForm = (req, res) => {
+  if (!req.body.recaptcha) {
+    return res.json({
+      success: false,
+      message: 'No recaptcha',
+    });
+  }
   const options = {
     secret: config.recaptcha.secret,
     response: req.body.recaptcha,
   };
-  fetch(config.recaptcha.url, options)
+  return fetch(config.recaptcha.url, options)
   .then(response => response.json())
   .then((json) => {
     if (json.success) {
@@ -286,8 +292,10 @@ export const contactForm = (req, res) => {
         success: true,
       });
     }
-    return res.json({
-      success: false,
-    });
+    // return res.json({
+    //   success: false,
+    // });
+    console.log(json);
+    return json;
   });
 };
