@@ -1,5 +1,6 @@
 // api/controllers/user.js
 
+import FormData from 'form-data';
 import fetch from 'isomorphic-fetch';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
@@ -272,20 +273,14 @@ export const contactForm = (req, res) => {
   if (!req.body.recaptcha) {
     return res.json({
       success: false,
-      message: 'No recaptcha',
     });
   }
-  const values = {
-    secret: config.recaptcha.secret,
-    response: req.body.recaptcha,
-  };
+  const formData = new FormData();
+  formData.append('secret', config.recaptcha.secret);
+  formData.append('response', req.body.recaptcha);
   const options = {
     method: 'post',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(values),
+    body: formData,
   };
   return fetch(config.recaptcha.url, options)
   .then(response => response.json())
@@ -300,10 +295,8 @@ export const contactForm = (req, res) => {
         success: true,
       });
     }
-    // return res.json({
-    //   success: false,
-    // });
-    console.log(json);
-    return res.json(json);
+    return res.json({
+      success: false,
+    });
   });
 };
