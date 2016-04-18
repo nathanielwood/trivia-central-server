@@ -1,3 +1,3 @@
-[submodule "trivia-central-lib"]
-	path = trivia-central-lib
-	url = https://github.com/nathanielwood/trivia-central-lib
+[submodule "trivia-station-lib"]
+	path = trivia-station-lib
+	url = https://github.com/nathanielwood/trivia-station-lib.git

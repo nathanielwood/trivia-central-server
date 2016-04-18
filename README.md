@@ -1,2 +1,2 @@
 ## Synopsis
-The web api server of Trivia Central
+The web api server of Trivia Station

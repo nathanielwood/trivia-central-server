@@ -12,7 +12,7 @@ import {
   validateUsernameForm,
   validateForgotPasswordForm,
   validateChangePasswordForm,
-} from '../../trivia-central-lib/validations';
+} from '../../trivia-station-lib/validations';
 import { registerMail, forgotPasswordMail, contactMail } from './mail';
 
 const returnUser = (user) => {
@@ -285,7 +285,6 @@ export const contactForm = (req, res) => {
   return fetch(config.recaptcha.url, options)
   .then(response => response.json())
   .then((json) => {
-    console.log(json.hostname);
     if (json.success && json.hostname === config.recaptcha.hostname) {
       contactMail({
         name: req.body.name,

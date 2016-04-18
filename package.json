@@ -1,7 +1,7 @@
 {
-  "name": "trivia-central-server",
+  "name": "trivia-station-server",
   "version": "1.0.0",
-  "description": "Web API of Trivia Central",
+  "description": "Web API of Trivia Station",
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=production node ./build/api",
@@ -12,7 +12,7 @@
     "start-dev": "babel-node ./src",
     "build": "npm run check-config && npm run clean-build && npm run start-build",
     "clean-build": "rm -rf ./build/ && mkdir build",
-    "start-build": "babel src -d build/api && mkdir build/config && babel config/custom.js -o build/config/custom.js && mkdir build/trivia-central-lib && babel trivia-central-lib/validations.js -o build/trivia-central-lib/validations.js && cp -r mail build",
+    "start-build": "babel src -d build/api && mkdir build/config && babel config/custom.js -o build/config/custom.js && mkdir build/trivia-station-lib && babel trivia-station-lib/validations.js -o build/trivia-station-lib/validations.js && cp -r mail build",
     "test": "echo todo"
   },
   "author": "Nathaniel Wood",

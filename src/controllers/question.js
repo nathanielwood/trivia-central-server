@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import Question from '../models/Question';
 import User from '../models/User';
-import { validateQuestionForm } from '../../trivia-central-lib/validations';
+import { validateQuestionForm } from '../../trivia-station-lib/validations';
 
 // cleans array of empty strings, null or undefined variables
 const cleanArray = (array) => {
