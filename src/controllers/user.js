@@ -1,5 +1,6 @@
 // api/controllers/user.js
 
+import fetch from 'isomorphic-fetch';
 import jwt from 'jsonwebtoken';
 import _ from 'lodash';
 import User from '../models/User';
@@ -268,12 +269,25 @@ export const resetPassword = (req, res) => {
 };
 
 export const contactForm = (req, res) => {
-  contactMail({
-    name: req.body.name,
-    email: req.body.email,
-    content: req.body.content,
-  });
-  return res.json({
-    success: true,
+  const options = {
+    secret: config.recaptcha.secret,
+    response: req.body.recaptcha,
+  };
+  fetch(config.recaptcha.url, options)
+  .then(response => response.json())
+  .then((json) => {
+    if (json.success) {
+      contactMail({
+        name: req.body.name,
+        email: req.body.email,
+        content: req.body.content,
+      });
+      return res.json({
+        success: true,
+      });
+    }
+    return res.json({
+      success: false,
+    });
   });
 };
