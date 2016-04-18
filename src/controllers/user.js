@@ -285,7 +285,8 @@ export const contactForm = (req, res) => {
   return fetch(config.recaptcha.url, options)
   .then(response => response.json())
   .then((json) => {
-    if (json.success) {
+    console.log(json.hostname);
+    if (json.success && json.hostname === config.recaptcha.hostname) {
       contactMail({
         name: req.body.name,
         email: req.body.email,
