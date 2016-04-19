@@ -12,7 +12,7 @@ export default {
     domain: 'http://localhost:3000', // required for mail
   },
   database: {
-    url: 'mongodb://localhost/mydatabase', // mongo db url
+    url: 'mongodb://localhost/trivia-station', // mongo db url
   },
   jwt: {
     authorization: {
@@ -30,9 +30,9 @@ export default {
     },
   },
   mail_api: {
-    url: 'https://api.mailserver.com', // url to transaction mail api
+    url: 'https://api.mailserver.example.com', // url to transaction mail api
     key: '1234567890', // key provided by mail api
-    from: 'support@mydomain.com', // from address supplied to emails
+    from: 'support@mydomain.example.com', // from address supplied to emails
   },
   facebook: {
     clientID: '1234567890', // Facebook client ID for Facebook logins
